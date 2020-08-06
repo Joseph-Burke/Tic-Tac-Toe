@@ -4,8 +4,16 @@
 # Introduce game
 puts "\nWelcome to Tic-Tac-Toe!"
 
+#Ask for player name.
+puts "Player 1 enter your name:"
+player_1_name = gets.chomp.capitalize
+
+puts "Player 2 enter your name:"
+player_2_name = gets.chomp.capitalize
+
+
 # Assign O's to one player and X's to the other.
-puts "Player 1, choose your symbol. X or O?\n\n"
+puts "#{player_1_name}, choose your symbol. X or O?\n\n"
 
 input = gets.chomp.upcase
 
@@ -20,14 +28,14 @@ player_1_symbol = input
 possible_symbols.delete(player_1_symbol)
 player_2_symbol = possible_symbols[0]
 
-puts "\nPlayer 1, your symbol is #{player_1_symbol}."
-puts "Player 2, your symbol is #{player_2_symbol}.\n\n"
+puts "\n#{player_1_name}, your symbol is #{player_1_symbol}."
+puts "\n#{player_2_name}, your symbol is #{player_2_symbol}.\n\n"
 
 # LOOP
 game_active = true
     # O's go first. Allow that player to select an available square.
-    first_player = (player_1_symbol == 'O' ? 'Player 1' : 'Player 2')
-    second_player = (player_1_symbol == 'X' ? 'Player 1' : 'Player 2')
+    first_player = (player_1_symbol == 'O' ? "#{player_1_name}" : "#{player_2_name}")
+    second_player = (player_1_symbol == 'X' ? "#{player_1_name}" : "#{player_2_name}")
 
 
     puts "O goes first. That's you, #{first_player}.\n"
