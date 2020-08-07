@@ -21,4 +21,5 @@ class Player
         @order = 1 if @symbol == 'O'
         @order = 2 if @symbol == 'X'
     end
+
 end

@@ -7,7 +7,6 @@ class Board
         @board_tiles = []
         construct_board_tiles
         construct_board
-        @available_tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     end
 
     def construct_board_tiles
