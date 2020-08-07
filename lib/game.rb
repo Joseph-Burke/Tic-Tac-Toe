@@ -58,7 +58,7 @@ class Game
   end
 
   def announce_victory(symbol)
-    arr = players.filter { |player| player.symbol == symbol }
+    arr = players.select { |player| player.symbol == symbol }
     winner = arr[0]
     "'#{symbol}' wins! Well played, #{winner.name}!"
   end
