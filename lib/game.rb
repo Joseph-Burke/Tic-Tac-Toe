@@ -67,16 +67,6 @@ class Game
     'Draw!'
   end
 
-  def offer_rematch
-    [
-      "\n",
-      'Enter R to play again.',
-      'Enter S to switch symbols and play again.',
-      'Enter Q to quit.',
-      "\n"
-    ]
-  end
-
   def player_one
     @players[0]
   end
