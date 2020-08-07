@@ -59,7 +59,7 @@ while turn_counter < 9
   until (1..9).include?(input) && available_tiles.include?(input)
 
     puts "It's your turn, #{current_player}. Enter a number between 1 and 9 to place your symbol on an empty tile."
-    print 'The following tiles are available: ' 
+    print 'The following tiles are available: '
     available_tiles.each { |e| print " #{e} " }
     puts "\n\n"
     input = gets.chomp.to_i
