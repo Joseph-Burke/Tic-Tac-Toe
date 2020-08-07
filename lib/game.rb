@@ -44,6 +44,39 @@ class Game
         "Your turn, #{player.name}! Enter a number from 1 to 9 to place your '#{player.symbol}'."
     end
 
+    def victory_check
+        o_wins = %w[O O O]
+        x_wins = %w[X X X]
+
+        Game::VICTORY_COMBINATIONS.each do |comb|
+            arr = []
+            comb.each { |num| arr.push(available_tiles[num - 1])}
+            return 'O' if arr == o_wins
+            return 'X' if arr == x_wins
+        end
+        false
+    end
+
+    def announce_victory(symbol)
+        arr = self.players.filter {|player| player.symbol == symbol}
+        winner = arr[0]
+        return "'#{symbol}' wins! Well played, #{winner.name}!"
+    end
+
+    def announce_draw
+        return "Draw!"
+    end
+
+    def offer_rematch
+        [
+            "\n",
+            "Enter R to play again.",
+            "Enter S to switch symbols and play again.",
+            "Enter Q to quit.",
+            "\n"
+        ]
+    end
+
     # Aliases for the players
     def player_one
         @players[0]
@@ -60,4 +93,15 @@ class Game
     def player_two=(arg)
         @players[1] = arg
     end
+
+    VICTORY_COMBINATIONS = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9],
+      [1, 5, 9],
+      [3, 5, 7]
+    ]
 end
