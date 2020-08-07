@@ -44,10 +44,10 @@ class Tile
     }
 end
 
-test_tile = Tile.new(1)
+# test_tile = Tile.new(1)
 
-puts test_tile.tile_strings
+# puts test_tile.tile_strings
 
-test_tile.change_state("O")
+# test_tile.change_state("O")
 
-puts test_tile.tile_strings
+# puts test_tile.tile_strings
