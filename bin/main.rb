@@ -1,4 +1,24 @@
 #!/usr/bin/env ruby
+game_board = [
+    "         |         |         ",
+    "         |         |         ",
+    "         |         |         ",
+    "         |         |         ",
+    "         |         |         ",
+    "_________|_________|_________",
+    "         |         |         ",
+    "         |         |         ",
+    "         |         |         ",
+    "         |         |         ",
+    "         |         |         ",
+    "_________|_________|_________",
+    "         |         |         ",
+    "         |         |         ",
+    "         |         |         ",
+    "         |         |         ",
+    "         |         |         "
+    ]
+
 
 # Introduce game
 puts "\nWelcome to Tic-Tac-Toe!"
@@ -38,7 +58,7 @@ first_player = (player_1_symbol == 'O' ? player_1_name : player_2_name)
 second_player = (player_1_symbol == 'X' ? player_1_name : player_2_name)
 
 puts "O goes first. That's you, #{first_player}.\n"
-puts "\n\tGAME BOARD\n\n"
+puts game_board
 puts 'Choose a square by entering a number from 1 to 9.'
 gets.chomp
 
@@ -46,12 +66,23 @@ counter = 0
 # X's go next. Allow that player to select an available square.
 while game_active
   puts "\nYour turn, #{second_player}."
-  puts "\n\tGAME BOARD\n\n"
+  puts game_board
   puts 'Choose a square by entering a number from 1 to 9.'
-  gets.chomp
+    input = nil
+  until (1..9).include?(input) && available_tiles.include?(input)
+    puts "Enter a number between 1 and 9 to place your symbol."
+    input = gets.chomp.to_i
+    unless (1..9).include?(input)
+        puts "Invalid input! Enter a number between 1 and 9."
+        next
+    end
+    unless available_tiles.include?(input)
+        puts "Invalid input! That tile has already been taken."
+    end
+end
 
   puts "\nYour turn, #{first_player}."
-  puts "\n\tGAME BOARD\n\n"
+  puts game_board
   puts 'Choose a square by entering a number from 1 to 9.'
   gets.chomp
 
