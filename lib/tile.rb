@@ -1,5 +1,4 @@
 class Tile
-
   attr_accessor :tile_state, :tile_strings
 
   def initialize(id)
