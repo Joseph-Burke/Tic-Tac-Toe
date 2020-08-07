@@ -19,6 +19,8 @@ game_board = [
     "         |         |         "
     ]
 
+available_tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 
 # Introduce game
 puts "\nWelcome to Tic-Tac-Toe!"
@@ -60,31 +62,68 @@ second_player = (player_1_symbol == 'X' ? player_1_name : player_2_name)
 puts "O goes first. That's you, #{first_player}.\n"
 puts game_board
 puts 'Choose a square by entering a number from 1 to 9.'
-gets.chomp
+input = nil
 
-counter = 0
-# X's go next. Allow that player to select an available square.
-while game_active
-  puts "\nYour turn, #{second_player}."
-  puts game_board
-  puts 'Choose a square by entering a number from 1 to 9.'
-    input = nil
-  until (1..9).include?(input) && available_tiles.include?(input)
-    puts "Enter a number between 1 and 9 to place your symbol."
+until (1..9).include?(input) && available_tiles.include?(input)
+
     input = gets.chomp.to_i
+
     unless (1..9).include?(input)
         puts "Invalid input! Enter a number between 1 and 9."
         next
     end
+
     unless available_tiles.include?(input)
         puts "Invalid input! That tile has already been taken."
     end
 end
 
-  puts "\nYour turn, #{first_player}."
+available_tiles.delete(input)
+
+counter = 0
+# X's go next. Allow that player to select an available square.
+while game_active
   puts game_board
+  puts "\nYour turn, #{second_player}."
   puts 'Choose a square by entering a number from 1 to 9.'
-  gets.chomp
+  input = nil
+
+until (1..9).include?(input) && available_tiles.include?(input)
+
+    input = gets.chomp.to_i
+
+    unless (1..9).include?(input)
+        puts "Invalid input! Enter a number between 1 and 9."
+        next
+    end
+
+    unless available_tiles.include?(input)
+        puts "Invalid input! That tile has already been taken."
+    end
+end
+  
+  available_tiles.delete(input)
+
+  puts game_board
+  puts "\nYour turn, #{first_player}."
+  puts 'Choose a square by entering a number from 1 to 9.'
+  input = nil
+
+  until (1..9).include?(input) && available_tiles.include?(input)
+
+    input = gets.chomp.to_i
+
+    unless (1..9).include?(input)
+        puts "Invalid input! Enter a number between 1 and 9."
+        next
+    end
+
+    unless available_tiles.include?(input)
+        puts "Invalid input! That tile has already been taken."
+    end
+  end
+
+  available_tiles.delete(input)
 
   counter += 1
 
@@ -100,6 +139,6 @@ puts "\n#{victorious_player} wins! Well played!\n"
 
 puts 'Hit R to replay.'
 puts 'Hit S to switch symbols and replay.'
-puts 'Hit Q to quit.\n\n'
+puts "Hit Q to quit.\n\n"
 
 gets.chomp.upcase
