@@ -1,5 +1,4 @@
-#!/usr/bin/env ruby
-game_board = [
+board = [
   '         |         |         ',
   '         |         |         ',
   '         |         |         ',
@@ -19,125 +18,66 @@ game_board = [
   '         |         |         '
 ]
 
-available_tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+puts 'Welcome to Tic-Tac-Toe'
 
-# Introduce game
-puts "\nWelcome to Tic-Tac-Toe!"
-
-# Ask for player name.
-
-puts 'Player 1 enter your name:'
+puts 'Player 1, enter your name: '
 player_1_name = gets.chomp.capitalize
-
-puts 'Player 2 enter your name:'
+puts 'Player 2, enter your name: '
 player_2_name = gets.chomp.capitalize
 
-# Assign O's to one player and X's to the other.
-puts "#{player_1_name}, choose your symbol. X or O?\n\n"
+player_1_symbol = nil
 
-input = gets.chomp.upcase
+while player_1_symbol.nil?
 
-possible_symbols = %w[X O]
+  puts "#{player_1_name}, choose a symbol. X or O?"
 
-until possible_symbols.include?(input)
-  puts "Invalid symbol. Choose again. X or O?\n\n"
-  input = gets.chomp.upcase
+  input = gets.chomp.strip.upcase
+  if %w[X O].include?(input)
+    player_1_symbol = input
+  else
+    puts 'Invalid entry!'
+  end
 end
 
-player_1_symbol = input
-possible_symbols.delete(player_1_symbol)
-player_2_symbol = possible_symbols[0]
+player_2_symbol = (player_1_symbol == 'X' ? 'O' : 'X')
 
-puts "\n#{player_1_name}, your symbol is #{player_1_symbol}."
-puts "\n#{player_2_name}, your symbol is #{player_2_symbol}.\n\n"
+puts [
+  "#{player_1_name} is #{player_1_symbol}.",
+  "#{player_2_name} is #{player_2_symbol}."
+]
 
-# LOOP
-game_active = true
-# O's go first. Allow that player to select an available square.
+puts board
 
-first_player = (player_1_symbol == 'O' ? player_1_name : player_2_name)
-second_player = (player_1_symbol == 'X' ? player_1_name : player_2_name)
+turn_counter = 0
+players = [player_1_name, player_2_name]
+available_tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-puts "O goes first. That's you, #{first_player}.\n"
-puts game_board
-puts 'Choose a square by entering a number from 1 to 9.'
-input = nil
-
-until (1..9).include?(input) && available_tiles.include?(input)
-
-    input = gets.chomp.to_i
-
-    unless (1..9).include?(input)
-        puts "Invalid input! Enter a number between 1 and 9."
-        next
-    end
-
-    unless available_tiles.include?(input)
-        puts "Invalid input! That tile has already been taken."
-    end
-end
-
-available_tiles.delete(input)
-
-counter = 0
-# X's go next. Allow that player to select an available square.
-while game_active
-  puts game_board
-  puts "\nYour turn, #{second_player}."
-  puts 'Choose a square by entering a number from 1 to 9.'
-  input = nil
-
-until (1..9).include?(input) && available_tiles.include?(input)
-
-    input = gets.chomp.to_i
-
-    unless (1..9).include?(input)
-        puts "Invalid input! Enter a number between 1 and 9."
-        next
-    end
-
-    unless available_tiles.include?(input)
-        puts "Invalid input! That tile has already been taken."
-    end
-end
-  
-  available_tiles.delete(input)
-
-  puts game_board
-  puts "\nYour turn, #{first_player}."
-  puts 'Choose a square by entering a number from 1 to 9.'
+while turn_counter < 9
+  current_player = players[turn_counter % 2]
   input = nil
 
   until (1..9).include?(input) && available_tiles.include?(input)
 
+    puts "It's your turn, #{current_player}. Enter a number between 1 and 9 to place your symbol on an empty tile."
+    print 'The following tiles are available: ' 
+    available_tiles.each { |e| print " #{e} " }
+    puts "\n\n"
     input = gets.chomp.to_i
 
     unless (1..9).include?(input)
-        puts "Invalid input! Enter a number between 1 and 9."
-        next
+      puts 'Invalid input! Enter a number between 1 and 9.'
+      next
     end
 
-    unless available_tiles.include?(input)
-        puts "Invalid input! That tile has already been taken."
-    end
+    puts 'Invalid input! That tile has already been taken.' unless available_tiles.include?(input)
   end
 
   available_tiles.delete(input)
 
-  counter += 1
+  puts board
 
-  game_active = false if counter >= 4
+  turn_counter += 1
 end
 
-# Announce which player is victorious.
-victorious_player = rand(2) == 1 ? first_player : second_player
-
-puts "\n#{victorious_player} wins! Well played!\n"
-
-# Allow the players to play again.
-
-puts 'Hit R to replay.'
-puts 'Hit S to switch symbols and replay.'
-puts "Hit Q to quit.\n\n"
-
-gets.chomp.upcase
+winner = players[rand(0..1)]
+puts "#{winner} wins! Well played!"
