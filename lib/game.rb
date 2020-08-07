@@ -24,6 +24,14 @@ class Game
         "#{player.name}, choose a symbol. X or O?"
     end
 
+    def announce_symbols
+        "\n#{player_one.name} is #{player_one.symbol}'s.\n#{player_two.name} is #{player_two.symbol}'s.\n\n"
+    end
+
+    def announce_first_turn
+        "O's go first. That's you, #{players[0].name}!"
+    end
+
     # Aliases for the players
     def player_one
         @players[0]

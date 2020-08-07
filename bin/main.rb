@@ -7,14 +7,14 @@ game = Game.new
 
 puts game.introduce
 #Assign player names
-# puts game.request_name("Player 1")
-# game.add_player(gets.chomp.capitalize)
-# puts game.request_name("Player 2")
-# game.add_player(gets.chomp.capitalize)
+puts game.request_name("Player 1")
+game.add_player(gets.chomp.capitalize)
+puts game.request_name("Player 2")
+game.add_player(gets.chomp.capitalize)
 
 
-game.add_player("Joe")
-game.add_player("Kalu")
+# game.add_player("Joe")
+# game.add_player("Kalu")
 
 
 while game.player_one.symbol.nil?
@@ -27,4 +27,12 @@ while game.player_one.symbol.nil?
     end
 end
 
-puts game.player_one.symbol
+game.player_two.take_opposite_symbol_to(game.player_one)
+
+puts game.announce_symbols
+
+game.players.sort_by! {|player| player.order}
+
+puts game.announce_first_turn
+
+puts game.board.display
