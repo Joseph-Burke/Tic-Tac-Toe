@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require_relative '../lib/game'
 require_relative '../lib/players'
 
@@ -7,6 +9,7 @@ puts game.introduce
 
 puts game.request_name('Player 1')
 game.add_player(gets.chomp.capitalize)
+
 puts game.request_name('Player 2')
 game.add_player(gets.chomp.capitalize)
 
@@ -16,7 +19,7 @@ while game.player_one.symbol.nil?
   if %w[X O].include?(input)
     game.player_one.symbol = input
   else
-    puts 'Invalid entry!'
+    puts "\nInvalid entry!\n"
   end
 end
 
@@ -27,8 +30,10 @@ puts game.announce_symbols
 game.players.sort_by!(&:order)
 
 puts game.board.display
-
+puts
 puts game.announce_first_turn
+
+puts game.board.display_guide
 
 while game.turn_counter < 9 && !game.victory_check
   current_player = game.players[game.turn_counter % 2]
@@ -39,11 +44,11 @@ while game.turn_counter < 9 && !game.victory_check
     input = gets.chomp.to_i
 
     unless (1..9).include?(input)
-      puts 'Invalid input! Enter a number between 1 and 9.'
+      puts "\nInvalid input! That's not a number between 1 and 9.\n"
       next
     end
 
-    puts 'Invalid input! That tile has already been taken.' unless game.available_tiles.include?(input)
+    puts "\nInvalid input! That tile has already been taken.\n" unless game.available_tiles.include?(input)
   end
 
   game.place_symbol(input, current_player.symbol)

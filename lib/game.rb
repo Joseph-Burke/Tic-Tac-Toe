@@ -11,11 +11,11 @@ class Game
   end
 
   def introduce
-    "\nWelcome to Tic-Tac-Toe!\n\n"
+    "\nWelcome to Tic-Tac-Toe!\n"
   end
 
   def request_name(placeholder)
-    "#{placeholder}, enter your name:"
+    "\n#{placeholder}, enter your name:\n"
   end
 
   def add_player(name)
@@ -23,7 +23,7 @@ class Game
   end
 
   def request_symbol(player)
-    "#{player.name}, choose a symbol. X or O?"
+    "\n#{player.name}, choose a symbol. X or O?\n"
   end
 
   def announce_symbols
@@ -31,7 +31,7 @@ class Game
   end
 
   def announce_first_turn
-    "O's go first. That's you, #{players[0].name}!"
+    "\nO's go first. That's you, #{players[0].name}!\n\n"
   end
 
   def place_symbol(num, symbol)
@@ -41,7 +41,7 @@ class Game
   end
 
   def announce_turn(player)
-    "Your turn, #{player.name}! Enter a number from 1 to 9 to place your '#{player.symbol}'."
+    "\nYour turn, #{player.name}! Enter a number from 1 to 9 to place your '#{player.symbol}'.\n"
   end
 
   def victory_check
@@ -60,11 +60,11 @@ class Game
   def announce_victory(symbol)
     arr = players.select { |player| player.symbol == symbol }
     winner = arr[0]
-    "'#{symbol}' wins! Well played, #{winner.name}!"
+    "\n'#{symbol}' wins! Well played, #{winner.name}!\n\n"
   end
 
   def announce_draw
-    'Draw!'
+    "\nDraw!\n\n"
   end
 
   def player_one

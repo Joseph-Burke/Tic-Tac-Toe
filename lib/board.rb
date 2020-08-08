@@ -38,4 +38,14 @@ class Board
   def display
     board_strings
   end
+
+  def display_guide
+    [
+      'Each square on the board is represented by a number from 1 to 9, as in the pattern seen below:',
+      "\n",
+      '1 2 3',
+      '4 5 6',
+      '7 8 9'
+    ]
+  end
 end
