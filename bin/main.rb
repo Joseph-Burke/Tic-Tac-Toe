@@ -57,7 +57,7 @@ while game.turn_counter < 9 && !game.victory_check
 
   puts game.announce_victory(game.victory_check) if game.victory_check
 
-  puts game.announce_draw if game.turn_counter == 9
-
   game.turn_counter += 1
+
+  puts game.announce_draw if game.turn_counter >= 9
 end
