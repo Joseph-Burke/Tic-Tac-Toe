@@ -63,6 +63,21 @@ _ruby bin/main.rb_
 
 From there, the game will begin, and the user need only follow the subsequent instructions that appear in the Terminal.
 
+## Repository Contents
+
+The code for the project is divided into two main directories: **./bin** and **./lib**.
+
+The **./bin** folder contains the executable **main.rb** file. This is the only file that contains the Kernel.puts and Kernel.gets methods, allowing for interaction with the game via the Terminal. _This is the only file that should be run if you want to play the game._
+
+The **./lib** folder contains subsidiary files that set up all of the classes and methods used in bin/main.rb
+
+- **players.rb**, where the Player class is defined.
+- **game.rb**, where the Game class is defined.
+- **board.rb**, where the Board class is defined.
+- **tile.rb**, where the Tile class is defined.
+
+In addition to the above, the repo also contains .rubocop.yml for linting and an ./assets folder to store images used in this README.md file.
+
 ## Authors
 
 👤 **Joseph Burke**
