@@ -1,99 +1,63 @@
 #!/usr/bin/env ruby
 
-board = [
-  '         |         |         ',
-  '         |         |         ',
-  '         |         |         ',
-  '         |         |         ',
-  '         |         |         ',
-  '_________|_________|_________',
-  '         |         |         ',
-  '         |         |         ',
-  '         |         |         ',
-  '         |         |         ',
-  '         |         |         ',
-  '_________|_________|_________',
-  '         |         |         ',
-  '         |         |         ',
-  '         |         |         ',
-  '         |         |         ',
-  '         |         |         '
-]
+require_relative '../lib/game'
+require_relative '../lib/players'
 
-def empty_line(num = 1)
-  puts "\n" * num
-end
+game = Game.new
 
-empty_line
-puts 'Welcome to Tic-Tac-Toe!'
-empty_line(2)
+puts game.introduce
 
-puts 'Player 1, enter your name: '
-player_1_name = gets.chomp.capitalize
-empty_line
-puts 'Player 2, enter your name: '
-player_2_name = gets.chomp.capitalize
+puts game.request_name('Player 1')
+game.add_player(gets.chomp.capitalize)
 
-player_1_symbol = nil
+puts game.request_name('Player 2')
+game.add_player(gets.chomp.capitalize)
 
-while player_1_symbol.nil?
-  empty_line
-  puts "#{player_1_name}, choose a symbol. X or O?"
-  empty_line
-
+while game.player_one.symbol.nil?
+  puts game.request_symbol(game.player_one)
   input = gets.chomp.strip.upcase
   if %w[X O].include?(input)
-    player_1_symbol = input
+    game.player_one.symbol = input
   else
-    puts 'Invalid entry!'
+    puts "\nInvalid entry!\n"
   end
 end
 
-player_2_symbol = (player_1_symbol == 'X' ? 'O' : 'X')
+game.player_two.take_opposite_symbol_to(game.player_one)
 
-empty_line
-puts [
-  "#{player_1_name} is #{player_1_symbol}.",
-  "#{player_2_name} is #{player_2_symbol}."
-]
-empty_line
+puts game.announce_symbols
 
-puts board
+game.players.sort_by!(&:order)
 
-turn_counter = 0
-players = [player_1_name, player_2_name]
-available_tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+puts game.board.display
+puts
+puts game.announce_first_turn
 
-while turn_counter < 9
-  current_player = players[turn_counter % 2]
+puts game.board.display_guide
+
+while game.turn_counter < 9 && !game.victory_check
+  current_player = game.players[game.turn_counter % 2]
   input = nil
 
-  until (1..9).include?(input) && available_tiles.include?(input)
-    empty_line
-    puts "It's your turn, #{current_player}. Enter a number between 1 and 9 to place your symbol on an empty tile."
-    empty_line
-    print 'The following tiles are available: '
-    available_tiles.each { |e| print " #{e} " }
-    empty_line(2)
+  until (1..9).include?(input) && game.available_tiles.include?(input)
+    puts game.announce_turn(current_player)
     input = gets.chomp.to_i
 
     unless (1..9).include?(input)
-      empty_line
-      puts 'Invalid input! Enter a number between 1 and 9.'
+      puts "\nInvalid input! That's not a number between 1 and 9.\n"
       next
     end
 
-    puts "\nInvalid input! That tile has already been taken." unless available_tiles.include?(input)
+    puts "\nInvalid input! That tile has already been taken.\n" unless game.available_tiles.include?(input)
   end
 
-  available_tiles.delete(input)
+  game.place_symbol(input, current_player.symbol)
 
-  puts board
-  empty_line
+  puts game.board.display
 
-  turn_counter += 1
+  puts game.announce_victory(game.victory_check) if game.victory_check
+
+  game.turn_counter += 1
+
+  puts game.announce_draw if game.turn_counter >= 9
 end
-
-winner = players[rand(0..1)]
-puts "#{winner} wins! Well played!"
-empty_line
