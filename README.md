@@ -1,12 +1,12 @@
 # Tic, Tac, Toe
 
-This is Joe and Kalu's 'Tic, Tac, Toe' project for the Ruby module of the Microverse course.
+Welcome to Joe and Kalu's 'Tic, Tac, Toe' project, part of the Ruby module in the Microverse course.
 
 !['Tic, Tac, Toe' Screenshot 1](./assets/screenshots/tic_tac_toe_screenshot_1.png)
 !['Tic, Tac, Toe' Screenshot 2](./assets/screenshots/tic_tac_toe_screenshot_2.png)
 !['Tic, Tac, Toe' Screenshot 3](./assets/screenshots/tic_tac_toe_screenshot_3.png)
 
-This project uses Ruby to create a Tic-Tac-Toe game that can be played in the Terminal.
+For this project, we wrote a Ruby script that allows the user to play a game of Tic, Tac, Toe in the Terminal.
 
 ## How To Play
 
@@ -24,7 +24,7 @@ In the event that all 9 squares are taken without either player getting three of
 
 - To quickly play the game, follow the link in the Live Demo section and hit the Run button in the header. The game will begin in the window on the right.
 
-- To download the contents of this repository and play the game locally, follow the steps in the 'Getting Started' section.
+- To download the contents of this repository and play the game locally, follow the steps in the 'Local Installation' section.
 
 ## Built With
 
@@ -35,15 +35,15 @@ In the event that all 9 squares are taken without either player getting three of
 
 ## Live Demo
 
-For a live demo of this project, visit this [repl.it](https://repl.it/@JosephBurke2/Tic-Tac-Toe#bin/main.rb).
+For a live demo of this project, visit [this repl.it](https://repl.it/@JosephBurke2/Tic-Tac-Toe#bin/main.rb).
 
-There are no pre-requisites to enjoy the game through this method.
+There are no pre-requisites for enjoying the game through this method.
 
 ## Local Installation
 
 ### Prerequisites
 
-If you prefer to download the project, you will need to have Ruby already installed on your machine. For more information on how to install Ruby, follow [this link](https://www.ruby-lang.org/en/downloads/).
+If you intend to download the project, you will need to have Ruby already installed on your machine. For more information on how to install Ruby, follow [this link](https://www.ruby-lang.org/en/downloads/).
 
 ### Installation Instructions
 
@@ -84,8 +84,7 @@ Feel free to check the [issues page](https://github.com/Joseph-Burke/Tic-Tac-Toe
 
 ## Show your support
 
-If you've read this far,
-...Give us a ⭐️!
+If you've read this far....give us a ⭐️!
 
 ## 📝 License
 
