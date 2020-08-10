@@ -12,9 +12,9 @@ This project uses Ruby to create a Tic-Tac-Toe game that can be played in the Te
 
 'Tic, Tac, Toe' is a traditional game for two players played on a board with 9 squares.
 
-Each player is represented by a symbol, either 'X' or 'O', which they then take turns to place in an empty square on the board, with O's going first.
+Each player is represented by a symbol, either 'X' or 'O'. The players then take turns to place their respective symbols in an empty square on the board, with O's going first - in our version of the game, these squares are represented by the numbers 1 to 9.
 
-The aim of the game is to have three of your symbols form a line, be it vertically, horizontally or diagonally.
+The aim of the game is to have three of your symbols form a line, be it vertically, horizontally or diagonally, as illustrated in the image below.
 
 ![A Winning Combination of Tic, Tac, Toe](./assets/game_instructions_image.jpg)
 
@@ -35,17 +35,25 @@ In the event that all 9 squares are taken without either player getting three of
 
 ## Live Demo
 
-For a live demo of this project, visit this [repl.it](https://repl.it/@JosephBurke2/Tic-Tac-Toe#bin/main.rb)
+For a live demo of this project, visit this [repl.it](https://repl.it/@JosephBurke2/Tic-Tac-Toe#bin/main.rb).
 
-## Getting Started
+There are no pre-requisites to enjoy the game through this method.
+
+## Local Installation
+
+### Prerequisites
+
+If you prefer to download the project, you will need to have Ruby already installed on your machine. For more information on how to install Ruby, follow [this link](https://www.ruby-lang.org/en/downloads/).
+
+### Installation Instructions
 
 To get your own copy of our project simply clone the repository to your local machine.
 
-**Step 1**: Type the following command into a git shell
+**Step 1**: Using the Command Line, navigate into the location where you would like to have the repository. Then enter the following line of code:
 
 _git clone <https://github.com/Joseph-Burke/Tic-Tac-Toe>_
 
-**Step 2**: Using the Command Line, navigate into the downloaded repository by entering the following command:
+**Step 2**: Once the repo has been cloned, navigate inside it by entering the following command:
 
 _cd Tic-Tac-Toe_
 
@@ -53,7 +61,9 @@ _cd Tic-Tac-Toe_
 
 _ruby bin/main.rb_
 
-## Author
+From there, the game will begin, and the user need only follow the subsequent instructions that appear in the Terminal.
+
+## Authors
 
 👤 **Joseph Burke**
 - Github: [@Joseph-Burke](https://github.com/Joseph-Burke)
@@ -62,19 +72,20 @@ _ruby bin/main.rb_
 
 👤 **Kalu Agu Kalu**
 
--   [Github](https://github.com/Godswilly)
--   [Twitter](https://twitter.com/KaluAguKalu17)
--   [Linkedin](https://www.linkedin.com/in/kalu-agu-kalu/)
+- Github: [@Godswilly](https://github.com/Godswilly)
+- Twitter: [@KaluAguKalu17](https://twitter.com/KaluAguKalu17)
+- LinkedIn: [Kalu Agu Kalu](https://www.linkedin.com/in/kalu-agu-kalu/)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Our favourite contributions are those that help us improve the project, whether with a contribution, an issue, or a feature request!
 
-Feel free to check the [issues page](https://github.com/Joseph-Burke/Tic-Tac-Toe/issues).
+Feel free to check the [issues page](https://github.com/Joseph-Burke/Tic-Tac-Toe/issues) to either create an issue or help us out by fixing an existing one.
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+If you've read this far,
+...Give us a ⭐️!
 
 ## 📝 License
 
