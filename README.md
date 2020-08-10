@@ -24,7 +24,7 @@ In the event that all 9 squares are taken without either player getting three of
 
 - To quickly play the game, follow the link in the Live Demo section and hit the Run button in the header. The game will begin in the window on the right.
 
-- To download the contents of this repository, follow the steps in the 'Getting Started' section.
+- To download the contents of this repository and play the game locally, follow the steps in the 'Getting Started' section.
 
 ## Built With
 
