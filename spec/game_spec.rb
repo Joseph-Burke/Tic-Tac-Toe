@@ -43,7 +43,7 @@ describe Game do
   end
 
   describe '#announce_first_turn' do
-    it "returns a string that announces which player goes first" do
+    it 'returns a string that announces which player goes first' do
       game = Game.new
       %w[Bill Josh].each { |e| game.players.push(Player.new(e)) }
       %w[X O].each_with_index { |e, i| game.players[i].symbol = e }
@@ -83,7 +83,7 @@ describe Game do
   end
 
   describe '#announce_victory' do
-    it "returns a string that announces the winner" do
+    it 'returns a string that announces the winner' do
       game = Game.new
       %w[Bill Josh].each { |e| game.players.push(Player.new(e)) }
       %w[X O].each_with_index { |e, i| game.players[i].symbol = e }

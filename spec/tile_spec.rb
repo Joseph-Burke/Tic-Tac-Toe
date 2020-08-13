@@ -22,7 +22,7 @@ describe Tile do
   end
 
   describe '#construct_tile_strings' do
-    it "gives a Tile object an array of strings stored in the Class constant" do
+    it 'gives a Tile object an array of strings stored in the Class constant' do
       tile = Tile.new(1)
       tile.tile_state = 'O'
       tile.construct_tile_strings
