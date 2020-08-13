@@ -76,9 +76,9 @@ describe Game do
     end
 
     it 'returns a false value when neither player has won' do
-        game = Game.new
-        game.available_tiles = ['O', 'X', 'O', 4, 5, 6, 7, 8, 9]
-        expect(game.victory_check).to eql(false)
+      game = Game.new
+      game.available_tiles = ['O', 'X', 'O', 4, 5, 6, 7, 8, 9]
+      expect(game.victory_check).to eql(false)
     end
   end
 
@@ -89,5 +89,5 @@ describe Game do
       %w[X O].each_with_index { |e, i| game.players[i].symbol = e }
       expect(game.announce_victory('X')).to eql("\n'X' wins! Well played, Bill!\n\n")
     end
-end
+  end
 end
