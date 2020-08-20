@@ -186,4 +186,11 @@ describe Game do
       expect(board.display).to eql(board.board_strings)
     end
   end
+
+  describe '#display_guide' do
+    it 'returns a string in an array that describes the numbers on the board' do
+      board = Board.new
+      expect(board.display_guide).to eql(['Each square on the board is represented by a number from 1 to 9, as in the pattern seen below:',"\n", '1 2 3', '4 5 6', '7 8 9'])
+    end
+  end
 end
