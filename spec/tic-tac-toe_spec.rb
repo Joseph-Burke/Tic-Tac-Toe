@@ -52,4 +52,55 @@ describe Game do
       expect(game.announce_first_turn).to eql("\nO's go first. That's you, Ahmad!\n\n")
     end
   end
+
+  describe '#place_symbol' do
+    it "changes the tiles in the game-board" do
+      game = Game.new
+      game.place_symbol(1, 'O')
+      expect(game.board.board_tiles[0].tile_state).to eql('O')
+    end
+  end
+
+  describe '#announce_turn' do
+    it "returns a string to tell player to make a selection" do
+      game = Game.new
+      player = Player.new('Ahmad')
+      player.symbol = 'O'
+      expect(game.announce_turn(player)).to eql("\nYour turn, Ahmad! Enter a number from 1 to 9 to place your 'O'.\n")
+    end
+  end
+
+  describe '#take_opposite_symbol_to' do
+    it "Gives the opposite symbol to the player if a particular symbol is taken" do
+      player1 = Player.new('Ahmad')
+      player2 = Player.new('Kalu')
+      player2.symbol = 'O'
+      player1.take_opposite_symbol_to(player2)
+      expect(player1.symbol).to eql('X')
+    end 
+  end
+
+  describe '#victory_check' do
+    context "To Check winner" do
+      it "returns the symbol of player that won" do
+        game = Game.new
+        game.available_tiles = [1, 2, 3, 'X', 'X', 'X', 7, 8, 9]
+        expect(game.victory_check).to eql('X')
+      end
+      it 'returns a false when no player has won' do
+        game = Game.new
+        game.available_tiles = [1, 2, 3, 'X', 'O', 'X', 7, 8, 9]
+        expect(game.victory_check).to eql(false)
+      end
+
+      describe '#announce_victory' do
+        it 'returns a string to announce the winner of the game' do
+          game = Game.new
+          %w[Ahmad Kalu].each { |x| game.players.push(Player.new(x)) }
+          %w[X O].each_with_index { |x, y| game.players[y].symbol = x }
+          expect(game.announce_victory('X')).to eql("\n'X' wins! Well played, Ahmad!\n\n")
+        end
+      end
+    end
+  end
 end
