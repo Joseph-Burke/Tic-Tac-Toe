@@ -179,4 +179,11 @@ describe Game do
       expect(board.board_strings.length).to eql(17)
     end
   end
+
+  describe '#display' do
+    it "returns the array in the board's @board_strings" do
+      board = Board.new
+      expect(board.display).to eql(board.board_strings)
+    end
+  end
 end
