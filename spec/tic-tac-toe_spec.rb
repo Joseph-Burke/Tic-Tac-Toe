@@ -138,4 +138,14 @@ describe Game do
                                            ])
     end
   end
+
+  describe '#construct_board_tiles' do
+    it "Create a board of 9 tiles" do
+      board = Board.new
+      board.board_tiles = []
+      board.construct_board_tiles
+      expect(board.board_tiles.length).to eql(9)
+      expect(board.board_tiles.all?(Tile)).to eql(true)
+    end
+  end
 end
