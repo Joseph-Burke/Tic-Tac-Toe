@@ -105,24 +105,37 @@ describe Game do
   end
 
   describe '#change_state' do
-    context 'Changes Tile state' do
-      it "changes a Tile object's tile_state attribute" do
-        tile = Tile.new(1)
-        tile.change_state('X')
-        expect(tile.tile_state).to eql('X')
-      end
+    it "changes a Tile object's tile_state attribute" do
+      tile = Tile.new(1)
+      tile.change_state('X')
+      expect(tile.tile_state).to eql('X')
+    end
 
-      it "changes 'X' to the new tile_state" do
-        tile = Tile.new(1)
-        tile.change_state('X')
-        expect(tile.tile_strings).to eql([
+    it "changes 'X' to the new tile_state" do
+      tile = Tile.new(1)
+      tile.change_state('X')
+      expect(tile.tile_strings).to eql([
                                          '         ',
                                          '   \\  /  ',
                                          '    \\/   ',
                                          '    /\\   ',
                                          '   /  \\  '
                                        ])
-      end
+    end
+  end
+
+  describe '#construct_tile_strings' do
+    it "changes 'O' to the new tile_state" do
+      tile = Tile.new(1)
+      tile.tile_state = 'O'
+      tile.construct_tile_strings
+      expect(tile.tile_strings).to eql([
+                                             '    __   ',
+                                             '   /  \\  ',
+                                             '  /    \\ ',
+                                             '  \\    / ',
+                                             '   \\__/  '
+                                           ])
     end
   end
 end
