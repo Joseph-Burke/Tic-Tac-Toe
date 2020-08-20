@@ -1,3 +1,5 @@
+# rubocop: disable Layout/LineLength
+
 require_relative '../lib/game.rb'
 require_relative '../lib/players.rb'
 require_relative '../lib/tile.rb'
@@ -12,7 +14,7 @@ describe Game do
   end
 
   describe '#request_name' do
-    it "returns a string that requests the name of players" do
+    it 'returns a string that requests the name of players' do
       game = Game.new
       expect(game.request_name('Player')).to eql("\nPlayer, enter your name:\n")
     end
@@ -28,7 +30,7 @@ describe Game do
   end
 
   describe '#request_symbol' do
-    it "returns a string for the player to choose a symbol" do
+    it 'returns a string for the player to choose a symbol' do
       game = Game.new
       player = Player.new('Kalu')
       expect(game.request_symbol(player)).to eql("\nKalu, choose a symbol. X or O?\n")
@@ -36,7 +38,7 @@ describe Game do
   end
 
   describe '#announce_symbols' do
-    it "returns a string that show players names and symbols" do
+    it 'returns a string that show players names and symbols' do
       game = Game.new
       %w[Ahmad Kalu].each { |x| game.players.push(Player.new(x)) }
       %w[X O].each_with_index { |x, y| game.players[y].symbol = x }
@@ -54,7 +56,7 @@ describe Game do
   end
 
   describe '#place_symbol' do
-    it "changes the tiles in the game-board" do
+    it 'changes the tiles in the game-board' do
       game = Game.new
       game.place_symbol(1, 'O')
       expect(game.board.board_tiles[0].tile_state).to eql('O')
@@ -62,7 +64,7 @@ describe Game do
   end
 
   describe '#announce_turn' do
-    it "returns a string to tell player to make a selection" do
+    it 'returns a string to tell player to make a selection' do
       game = Game.new
       player = Player.new('Ahmad')
       player.symbol = 'O'
@@ -71,18 +73,18 @@ describe Game do
   end
 
   describe '#take_opposite_symbol_to' do
-    it "Gives the opposite symbol to the player if a particular symbol is taken" do
+    it 'Gives the opposite symbol to the player if a particular symbol is taken' do
       player1 = Player.new('Ahmad')
       player2 = Player.new('Kalu')
       player2.symbol = 'O'
       player1.take_opposite_symbol_to(player2)
       expect(player1.symbol).to eql('X')
-    end 
+    end
   end
 
   describe '#victory_check' do
-    context "To Check winner" do
-      it "returns the symbol of player that won" do
+    context 'To Check winner' do
+      it 'returns the symbol of player that won' do
         game = Game.new
         game.available_tiles = [1, 2, 3, 'X', 'X', 'X', 7, 8, 9]
         expect(game.victory_check).to eql('X')
@@ -130,17 +132,17 @@ describe Game do
       tile.tile_state = 'O'
       tile.construct_tile_strings
       expect(tile.tile_strings).to eql([
-                                             '    __   ',
-                                             '   /  \\  ',
-                                             '  /    \\ ',
-                                             '  \\    / ',
-                                             '   \\__/  '
-                                           ])
+                                         '    __   ',
+                                         '   /  \\  ',
+                                         '  /    \\ ',
+                                         '  \\    / ',
+                                         '   \\__/  '
+                                       ])
     end
   end
 
   describe '#construct_board_tiles' do
-    it "Create a board of 9 tiles" do
+    it 'Create a board of 9 tiles' do
       board = Board.new
       board.board_tiles = []
       board.construct_board_tiles
@@ -190,7 +192,9 @@ describe Game do
   describe '#display_guide' do
     it 'returns a string in an array that describes the numbers on the board' do
       board = Board.new
-      expect(board.display_guide).to eql(['Each square on the board is represented by a number from 1 to 9, as in the pattern seen below:',"\n", '1 2 3', '4 5 6', '7 8 9'])
+      expect(board.display_guide).to eql(['Each square on the board is represented by a number from 1 to 9, as in the pattern seen below:', "\n", '1 2 3', '4 5 6', '7 8 9'])
     end
   end
 end
+
+# rubocop: enable Layout/LineLength
