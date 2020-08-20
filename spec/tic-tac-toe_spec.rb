@@ -169,4 +169,14 @@ describe Game do
       expect(board.board_strings).to eql([' ________|_________|________ '])
     end
   end
+
+  describe '#construct_board' do
+    it 'create an array of 17 strings to form the row in the board' do
+      board = Board.new
+      board.board_strings = [1, 2, 3, 4, 'Kalu', false]
+      board.construct_board
+      expect(board.board_strings.all?(String)).to eql(true)
+      expect(board.board_strings.length).to eql(17)
+    end
+  end
 end
