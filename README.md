@@ -1,6 +1,6 @@
 # Tic, Tac, Toe
 
-Welcome to Joe and Kalu's 'Tic, Tac, Toe' project, part of the Ruby module in the Microverse course.
+Welcome to Joe and Kalu's 'Tic, Tac, Toe' project, part of the Ruby module in the Microverse course. Tested with Ahmad.
 
 !['Tic, Tac, Toe' Screenshot 1](./assets/screenshots/tic_tac_toe_screenshot_1.png)
 !['Tic, Tac, Toe' Screenshot 2](./assets/screenshots/tic_tac_toe_screenshot_2.png)
@@ -63,6 +63,12 @@ _ruby bin/main.rb_
 
 From there, the game will begin, and the user need only follow the subsequent instructions that appear in the Terminal.
 
+## Testing Instructions
+
+**Step**: Using the Command Line, navigate into the location where the project is saved. Then enter the following line of code:
+
+_rspec_
+
 ## Repository Contents
 
 The code for the project is divided into two main directories: **./bin** and **./lib**.
@@ -76,7 +82,7 @@ The **./lib** folder contains subsidiary files that set up all of the classes an
 - **board.rb**, where the Board class is defined.
 - **tile.rb**, where the Tile class is defined.
 
-In addition to the above, the repo also contains .rubocop.yml for linting and an ./assets folder to store images used in this README.md file.
+In addition to the above, the repo also contains .rubocop.yml for linting, an ./assets folder to store images used in this README.md file and ./spec folder to store testing files using Rspec.
 
 ## Authors
 
@@ -90,6 +96,12 @@ In addition to the above, the repo also contains .rubocop.yml for linting and an
 - Github: [@Godswilly](https://github.com/Godswilly)
 - Twitter: [@KaluAguKalu17](https://twitter.com/KaluAguKalu17)
 - LinkedIn: [Kalu Agu Kalu](https://www.linkedin.com/in/kalu-agu-kalu/)
+
+👤 **Ahmad Chata**
+
+- Github: [Ahmad Chata](https://github.com/ahmadchata)
+- Twitter: [Ahmad Chata](https://twitter.com/ahmadchata)
+- LinkedIn: [Ahmad Chata](https://www.linkedin.com/in/ahmad-chata-957b9b51)
 
 ## 🤝 Contributing
 
