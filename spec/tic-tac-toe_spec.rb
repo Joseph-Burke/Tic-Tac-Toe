@@ -160,4 +160,13 @@ describe Game do
       expect(board.board_strings.all?(String)).to eql(true)
     end
   end
+
+  describe '#construct_division' do
+    it 'create an array of 1 string in the board' do
+      board = Board.new
+      board.board_strings = []
+      board.construct_division
+      expect(board.board_strings).to eql([' ________|_________|________ '])
+    end
+  end
 end
