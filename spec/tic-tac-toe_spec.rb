@@ -148,4 +148,16 @@ describe Game do
       expect(board.board_tiles.all?(Tile)).to eql(true)
     end
   end
+
+  describe '#construct_row' do
+    it 'create an array of 5 strings in the board' do
+      board = Board.new
+      board.board_strings = []
+      tiles = []
+      3.times { |x| tiles.push(Tile.new(x)) }
+      board.construct_row(tiles)
+      expect(board.board_strings.length).to eql(5)
+      expect(board.board_strings.all?(String)).to eql(true)
+    end
+  end
 end
